@@ -1,15 +1,6 @@
 <?php
-header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: PUT, POST, GET, DELETE, OPTIONS');
-header('Access-Control-Allow-Credentials: true');
-header('Access-Control-Allow-Headers: x-requested-with, Content-Type, origin, authorization, accept, x-access-token');
-// Функция для исправления того, что PHP путает ввод, содержащий точки и т. д.
+require ("../_utils/index.php");
 
-// `$source` может быть либо 'POST', либо 'GET'
-//http://192.168.0.26/IT_10_старое/Batmanov/List_kvant/api/teacher/liststudent/index.php?id_group=%271%27
-$Link=mysqli_connect('u512639.mysql.masterhost.ru','u512639','MiEdYIn.3uM','u512639');
-if(!$Link)die('Нет подключения к БД!');
-@mysqli_query($Link,'SET NAMES utf8');
 if(!$_GET["id_student"] && !$_GET["id_teacher"])die('Нет параметра!');
 if ($_GET["id_student"])
 {
